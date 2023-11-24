@@ -20,7 +20,29 @@ const fetchUtilisateurByID = (id) => {
     });
 }
 
+const addUtilisateur = (utilisateur) => {
+    return new Promise((resolve, reject) => {
+        let sql = `INSERT INTO utilisateur (pseudo, mdp) VALUES ('${utilisateur.pseudo}','${utilisateur.mdp}')`;
+        let query = conn.query(sql, (err, result, field) => {
+            if(err) return reject(err);
+            resolve(result);
+        });
+    });
+}
+
+const login = (pseudo, mdp) => {
+    return new Promise((resolve, reject) => {
+        let sql = `SELECT * FROM utilisateur WHERE pseudo = '${pseudo}' AND mdp = '${mdp}';`;
+        let query = conn.query(sql, (err, result, field) => {
+            if (err) return reject(err);
+            resolve(result);
+        });
+    });
+}
+
 module.exports = {
     fetchUtilisateur,
-    fetchUtilisateurByID
+    fetchUtilisateurByID,
+    addUtilisateur,
+    login
 }
