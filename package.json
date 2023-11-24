@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@uiw/react-color-chrome": "^2.0.2",
+    "@uiw/react-color-github": "^2.0.2",
+    "cors": "^2.8.5",
+    "moment": "^2.29.4",
+    "react-color": "^2.19.3",
+    "react-hot-toast": "^2.4.1"
+  }
+}
